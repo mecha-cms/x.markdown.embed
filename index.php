@@ -8,26 +8,51 @@ asdf asdf asdf
 
 asdf asdf asdf
 
+    asdf asdf asdf
+    asdf asdf asdf
+
     <asdf:asdf>
+
+    asdf asdf asdf
 
 asdf asdf asdf
 
 ```
+asdf asdf asdf
+asdf asdf asdf
+
 <asdf:asdf>
+
+asdf asdf asdf
 ```
 
 ``` asdf
+asdf asdf asdf
+asdf asdf asdf
+
 <asdf:asdf>
+
+asdf asdf asdf
 ```
 
 asdf asdf asdf
 
 ~~~
+asdf asdf asdf
+asdf asdf asdf
+
 <asdf:asdf>
+
+asdf asdf asdf
 ~~~
 
 ~~~ asdf
+asdf asdf asdf
+asdf asdf asdf
+
 <asdf:asdf>
+
+asdf asdf asdf
 ~~~
 
 > asdf asdf asdf
@@ -37,26 +62,51 @@ asdf asdf asdf
 >
 > asdf asdf asdf
 >
+>     asdf asdf asdf
+>     asdf asdf asdf
+>
 >     <asdf:asdf>
+>
+>     asdf asdf asdf
 >
 > asdf asdf asdf
 >
 > ```
+> asdf asdf asdf
+> asdf asdf asdf
+>
 > <asdf:asdf>
+>
+> asdf asdf asdf
 > ```
 >
 > ``` asdf
+> asdf asdf asdf
+> asdf asdf asdf
+>
 > <asdf:asdf>
+>
+> asdf asdf asdf
 > ```
 >
 > asdf asdf asdf
 >
 > ~~~
+> asdf asdf asdf
+> asdf asdf asdf
+>
 > <asdf:asdf>
+>
+> asdf asdf asdf
 > ~~~
 >
 > ~~~ asdf
+> asdf asdf asdf
+> asdf asdf asdf
+>
 > <asdf:asdf>
+>
+> asdf asdf asdf
 > ~~~
 
 <asdf:asdf>
@@ -73,26 +123,51 @@ asdf asdf asdf
 
    asdf asdf asdf
 
+       asdf asdf asdf
+       asdf asdf asdf
+
        <asdf:asdf>
+
+       asdf asdf asdf
 
    asdf asdf asdf
 
    ```
+   asdf asdf asdf
+   asdf asdf asdf
+
    <asdf:asdf>
+
+   asdf asdf asdf
    ```
 
    ``` asdf
+   asdf asdf asdf
+   asdf asdf asdf
+
    <asdf:asdf>
+
+   asdf asdf asdf
    ```
 
    asdf asdf asdf
 
    ~~~
+   asdf asdf asdf
+   asdf asdf asdf
+
    <asdf:asdf>
+
+   asdf asdf asdf
    ~~~
 
    ~~~ asdf
+   asdf asdf asdf
+   asdf asdf asdf
+
    <asdf:asdf>
+
+   asdf asdf asdf
    ~~~
 2. asdf asdf asdf
 3. <asdf:asdf>
@@ -105,88 +180,124 @@ asdf asdf asdf
 
       asdf asdf asdf
 
+          asdf asdf asdf
+          asdf asdf asdf
+
           <asdf:asdf>
+
+          asdf asdf asdf
 
       asdf asdf asdf
 
       ```
+      asdf asdf asdf
+      asdf asdf asdf
+
       <asdf:asdf>
+
+      asdf asdf asdf
       ```
 
       ``` asdf
+      asdf asdf asdf
+      asdf asdf asdf
+
       <asdf:asdf>
+
+      asdf asdf asdf
       ```
 
       asdf asdf asdf
 
       ~~~
+      asdf asdf asdf
+      asdf asdf asdf
+
       <asdf:asdf>
+
+      asdf asdf asdf
       ~~~
 
       ~~~ asdf
+      asdf asdf asdf
+      asdf asdf asdf
+
       <asdf:asdf>
+
+      asdf asdf asdf
       ~~~
    3. asdf asdf asdf
 5. asdf asdf asdf
 MD;
 
-function blocks(string $content, int $d = 0) {
+function chunk(string $content, int $d = 0) {
     $prev = "";
     $r = [];
-    foreach (\explode("\n", $content) as $current) {
-        $prefix = \str_repeat(' ', $d);
-        if ($prefix === \substr($current, 0, $d)) {
-            $current = \substr($current, $d);
+    foreach (\explode("\n", $content) as $row) {
+        while (false !== ($before = \strstr($row, "\t", true))) {
+            $v = \strlen($before);
+            $row = $before . \str_repeat(' ', 4 - $v % 4) . \substr($row, $v + 1);
         }
+        $prefix = \str_repeat(' ', $d);
         if ($prefix === \substr($prev, 0, $d)) {
             $prev = \substr($prev, $d);
         }
-        $dent = \strspn($current, ' ');
-        if ("" === $current) {
-            $prefix = ""; // Do not indent empty block(s)
+        if ($prefix === \substr($row, 0, $d)) {
+            $row = \substr($row, $d);
+        }
+        $dent = \strspn($row, ' ');
+        if ("" === $row) {
+            $prefix = ""; // Do not indent empty chunk(s)
         }
         if ("" !== $prev && isset($r[$last = \count($r) - 1])) {
-            if ("" === $current || $dent > 0) {
+            if (("" === $row || $dent >= 4) && \strspn($r[$last][0], ' ') >= 4) {
+                $r[$last][0] .= "\n" . $row;
+                continue;
+            }
+            if ("" === $row || $dent > 0) {
                 $n = \strspn($prev, '0123456789');
                 if ($n > 9) {
-                    $r[] = $prev = $prefix . $current;
+                    $r[] = [$prev = $prefix . $row, true];
                     continue;
                 }
                 if (false !== \strpos(').', \substr($prev, $n, 1)) && false !== \strpos(" \t", \substr($prev, $n + 1, 1))) {
-                    $r[$last] .= "\n" . $prefix . $current;
+                    $r[$last][0] .= "\n" . $prefix . $row;
                     continue;
                 }
-                $r[] = $prev = $prefix . $current;
+                $r[] = [$prev = $prefix . $row, true];
                 continue;
             }
-            if (isset($prev[0])) {
-                if ('>' === $prev[0] && '>' === \substr($current, 0, 1)) {
-                    $r[$last] .= "\n" . $prefix . $current;
+            if (isset($r[$last][0][0])) {
+                if ('>' === $r[$last][0][0] && '>' === \substr($row, 0, 1)) {
+                    $r[$last][0] .= "\n" . $prefix . $row;
                     continue;
                 }
-                if (false !== \strpos('`~', $prev[0]) && ($n = \strspn($prev, $prev[0])) >= 3) {
-                    if ("\n" . \str_repeat($prev[0], $n) === \substr($r[$last], -($n + 1))) {
-                        $r[] = $prev = $prefix . $current;
+                if (false !== \strpos('`~', $r[$last][0][0]) && ($n = \strspn($r[$last][0], $r[$last][0][0])) >= 3) {
+                    if ("\n" . \str_repeat($r[$last][0][0], $n) === \substr($r[$last][0], -($n + 1))) {
+                        $r[] = [$prev = $prefix . $row, true];
                         continue;
                     }
-                    $r[$last] .= "\n" . $prefix . $current;
+                    $r[$last][0] .= "\n" . $prefix . $row;
+                    $r[$last][1] = false;
                     continue;
                 }
             }
-            $r[$last] .= "\n" . $prefix . $current;
+        }
+        if ($dent >= 4) {
+            $r[] = [$prev = $prefix . $row, false];
             continue;
         }
-        $r[] = $prev = $prefix . $current;
+        $r[] = [$prev = $prefix . $row, true];
     }
     return $r;
 }
 
-$content = '    ' . \strtr($content, ["\n" => "\n    "]);
-$content = \preg_replace('/^[ \t]+$/m', "", $content);
+// $content = '    ' . \strtr($content, ["\n" => "\n    "]);
+// $content = \preg_replace('/^[ \t]+$/m', "", $content);
 
 echo '<pre>';
-foreach (blocks($content, 4) as $v) {
-    echo '<span style="border:1px solid;display:block;">' . (\htmlspecialchars($v) ?: '<br>') . '</span>';
+foreach (chunk($content) as $v) {
+    echo '<span style="border:2px solid;color:#' . ($v[1] ? '080' : '800') . ';display:block;margin:0 0 1px;">' . (\htmlspecialchars($v[0]) ?: '<br>') . '</span>';
 }
 echo '</pre>';
 
