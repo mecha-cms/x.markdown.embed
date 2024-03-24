@@ -1,377 +1,27 @@
 <?php namespace x\markdown__embed;
 
-$content = <<<MD
-asdf asdf asdf
-asdf asdf asdf
-
-<asdf:asdf>
-
- <asdf:asdf>
-
-asdf asdf asdf
-
-    asdf asdf asdf
-    asdf asdf asdf
-
-    <asdf:asdf>
-
-    asdf asdf asdf
-
-asdf asdf asdf
-
-```
-asdf asdf asdf
-asdf asdf asdf
-
-<asdf:asdf>
-
-asdf asdf asdf
-```
-
-``` asdf
-asdf asdf asdf
-asdf asdf asdf
-
-<asdf:asdf>
-
-asdf asdf asdf
-```
-
-asdf asdf asdf
-
-~~~
-asdf asdf asdf
-asdf asdf asdf
-
-<asdf:asdf>
-
-asdf asdf asdf
-~~~
-
-~~~ asdf
-asdf asdf asdf
-asdf asdf asdf
-
-<asdf:asdf>
-
-asdf asdf asdf
-~~~
-
-> asdf asdf asdf
-> asdf asdf asdf
->
-> <asdf:asdf>
->
-> asdf asdf asdf
->
->     asdf asdf asdf
->     asdf asdf asdf
->
->     <asdf:asdf>
->
->     asdf asdf asdf
->
-> asdf asdf asdf
->
-> ```
-> asdf asdf asdf
-> asdf asdf asdf
->
-> <asdf:asdf>
->
-> asdf asdf asdf
-> ```
->
-> ``` asdf
-> asdf asdf asdf
-> asdf asdf asdf
->
-> <asdf:asdf>
->
-> asdf asdf asdf
-> ```
->
-> asdf asdf asdf
->
-> ~~~
-> asdf asdf asdf
-> asdf asdf asdf
->
-> <asdf:asdf>
->
-> asdf asdf asdf
-> ~~~
->
-> ~~~ asdf
-> asdf asdf asdf
-> asdf asdf asdf
->
-> <asdf:asdf>
->
-> asdf asdf asdf
-> ~~~
-
-<asdf:asdf>
------------
-
-### <asdf:asdf>
-
-asdf asdf asdf
-
-1. asdf asdf asdf
-   asdf asdf asdf
-
-   <asdf:asdf>
-
-   asdf asdf asdf
-
-       asdf asdf asdf
-       asdf asdf asdf
-
-       <asdf:asdf>
-
-       asdf asdf asdf
-
-   asdf asdf asdf
-
-   ```
-   asdf asdf asdf
-   asdf asdf asdf
-
-   <asdf:asdf>
-
-   asdf asdf asdf
-   ```
-
-   ``` asdf
-   asdf asdf asdf
-   asdf asdf asdf
-
-   <asdf:asdf>
-
-   asdf asdf asdf
-   ```
-
-   asdf asdf asdf
-
-   ~~~
-   asdf asdf asdf
-   asdf asdf asdf
-
-   <asdf:asdf>
-
-   asdf asdf asdf
-   ~~~
-
-   ~~~ asdf
-   asdf asdf asdf
-   asdf asdf asdf
-
-   <asdf:asdf>
-
-   asdf asdf asdf
-   ~~~
-2. asdf asdf asdf
-3. <asdf:asdf>
-4. asdf asdf asdf
-   1. asdf asdf asdf
-   2. asdf asdf asdf
-      asdf asdf asdf
-
-      <asdf:asdf>
-
-      asdf asdf asdf
-
-          asdf asdf asdf
-          asdf asdf asdf
-
-          <asdf:asdf>
-
-          asdf asdf asdf
-
-      asdf asdf asdf
-
-      ```
-      asdf asdf asdf
-      asdf asdf asdf
-
-      <asdf:asdf>
-
-      asdf asdf asdf
-      ```
-
-      ``` asdf
-      asdf asdf asdf
-      asdf asdf asdf
-
-      <asdf:asdf>
-
-      asdf asdf asdf
-      ```
-
-      asdf asdf asdf
-
-      ~~~
-      asdf asdf asdf
-      asdf asdf asdf
-
-      <asdf:asdf>
-
-      asdf asdf asdf
-      ~~~
-
-      ~~~ asdf
-      asdf asdf asdf
-      asdf asdf asdf
-
-      <asdf:asdf>
-
-      asdf asdf asdf
-      ~~~
-   3. asdf asdf asdf
-5. asdf asdf asdf
-
-asdf asdf asdf
-
-- - -
-
-asdf asdf asdf
-
-- asdf asdf asdf
-  asdf asdf asdf
-
-  <asdf:asdf>
-
-  asdf asdf asdf
-
-      asdf asdf asdf
-      asdf asdf asdf
-
-      <asdf:asdf>
-
-      asdf asdf asdf
-
-  asdf asdf asdf
-
-  ```
-  asdf asdf asdf
-  asdf asdf asdf
-
-  <asdf:asdf>
-
-  asdf asdf asdf
-  ```
-
-  ``` asdf
-  asdf asdf asdf
-  asdf asdf asdf
-
-  <asdf:asdf>
-
-  asdf asdf asdf
-  ```
-
-  asdf asdf asdf
-
-  ~~~
-  asdf asdf asdf
-  asdf asdf asdf
-
-  <asdf:asdf>
-
-  asdf asdf asdf
-  ~~~
-
-  ~~~ asdf
-  asdf asdf asdf
-  asdf asdf asdf
-
-  <asdf:asdf>
-
-  asdf asdf asdf
-  ~~~
-- asdf asdf asdf
-- <asdf:asdf>
-- asdf asdf asdf
-  - asdf asdf asdf
-  - asdf asdf asdf
-    asdf asdf asdf
-
-    <asdf:asdf>
-
-    asdf asdf asdf
-
-        asdf asdf asdf
-        asdf asdf asdf
-
-        <asdf:asdf>
-
-        asdf asdf asdf
-
-    asdf asdf asdf
-
-    ```
-    asdf asdf asdf
-    asdf asdf asdf
-
-    <asdf:asdf>
-
-    asdf asdf asdf
-    ```
-
-    ``` asdf
-    asdf asdf asdf
-    asdf asdf asdf
-
-    <asdf:asdf>
-
-    asdf asdf asdf
-    ```
-
-    asdf asdf asdf
-
-    ~~~
-    asdf asdf asdf
-    asdf asdf asdf
-
-    <asdf:asdf>
-
-    asdf asdf asdf
-    ~~~
-
-    ~~~ asdf
-    asdf asdf asdf
-    asdf asdf asdf
-
-    <asdf:asdf>
-
-    asdf asdf asdf
-    ~~~
-  - asdf asdf asdf
-- asdf asdf asdf
-
-asdf asdf asdf
-MD;
-
-function blocks(string $content, int $d = 0) {
+function blocks(string $content) {
     $block = -1;
     $blocks = [];
     $rows = \explode("\n", $content);
     foreach ($rows as $row) {
+        // TODO: Keep the tab character(s) as-is!
         while (false !== ($before = \strstr($row, "\t", true))) {
             $v = \strlen($before);
             $row = $before . \str_repeat(' ', 4 - $v % 4) . \substr($row, $v + 1);
         }
-        $prefix = \str_repeat(' ', $d);
-        if ($prefix === \substr($row, 0, $d)) {
-            $row = \substr($row, $d);
-        }
         $dent = \strspn($row, ' ');
-        if ("" === $row) {
-            $prefix = ""; // Do not indent empty block
-        }
         if ($prev = $blocks[$block][0] ?? 0) {
+			if ($row && '>' === $row[0] && '>' === $prev[0]) {
+				$blocks[$block][0] .= "\n" . $row;
+				continue;
+			}
             if (false !== \strpos('`~', $prev[0]) && ($n = \strspn($prev, $prev[0])) >= 3) {
+                $test = \strstr($prev, "\n", true) ?: $prev;
+                if ('`' === $prev[0] && false !== \strpos(\substr($test, $n), '`')) {
+                    $blocks[++$block] = [$row, "" !== $row];
+                    continue;
+                }
                 if ($row === \str_repeat($prev[0], $n)) {
                     $blocks[$block++][0] .= "\n" . $row;
                     continue;
@@ -383,8 +33,6 @@ function blocks(string $content, int $d = 0) {
             if (false !== \strpos('*+-', $prev[0]) && false !== \strpos(" \t", $prev[1] ?? "")) {
                 if ("" !== $row && $dent < 2) {
                     if ("\n" === \substr($prev, -1)) {
-                        // Convert last `\n` character in list block syntax to the next block if next row is not empty
-                        // and is not a list block syntax
                         $blocks[$block][0] = \substr($blocks[$block][0], 0, -1);
                         $blocks[++$block] = ["", false];
                     }
@@ -402,8 +50,6 @@ function blocks(string $content, int $d = 0) {
             if (false !== \strpos(').', \substr($prev, $n, 1)) && false !== \strpos(" \t", \substr($prev, $n + 1, 1))) {
                 if ("" !== $row && $dent < 3) {
                     if ("\n" === \substr($prev, -1)) {
-                        // Convert last `\n` character in list block syntax to the next block if next row is not empty
-                        // and is not a list block syntax
                         $blocks[$block][0] = \substr($blocks[$block][0], 0, -1);
                         $blocks[++$block] = ["", false];
                     }
@@ -416,8 +62,6 @@ function blocks(string $content, int $d = 0) {
             if (\strspn($prev, ' ') >= 4) {
                 if ("" !== $row && $dent < 4) {
                     if ("\n" === \substr($prev, -1)) {
-                        // Convert last `\n` character in indented code block syntax to the next block if next row is
-                        // not empty and is not an indented code block syntax
                         $blocks[$block][0] = \substr($blocks[$block][0], 0, -1);
                         $blocks[++$block] = ["", false];
                     }
@@ -428,8 +72,25 @@ function blocks(string $content, int $d = 0) {
                 $blocks[$block][1] = false;
                 continue;
             }
+			// Blank line
             if ("" === $row) {
                 $blocks[++$block] = ["", false];
+                continue;
+            }
+			// Start of tight quote block
+            if ('>' === $row[0]) {
+                $blocks[++$block] = [$row, true];
+                continue;
+            }
+			// Start of tight list block
+            if (false !== \strpos('*+-', $row[0]) && false !== \strpos(" \t", $row[1] ?? "")) {
+                $blocks[++$block] = [$row, true];
+                continue;
+            }
+			// Start of tight list block
+            $n = \strspn($row, '0123456789');
+            if (false !== \strpos(').', \substr($row, $n, 1)) && false !== \strpos(" \t", \substr($row, $n + 1, 1))) {
+                $blocks[++$block] = [$row, true];
                 continue;
             }
             $blocks[$block][0] .= "\n" . $row;
@@ -446,24 +107,92 @@ function content(array $blocks, callable $fn) {
             $block = $block[0];
             continue;
         }
-        if ('>' === $block[0][0]) {
-            $block = \preg_replace('/^>(?>[ \t]?|$)/m', "", $block[0]);
-			$block = content(blocks($block), $fn);
-            $block = '> ' . \strtr($block, ["\n" => "\n> "]);
-            $block = \preg_replace('/^>[ \t]?$/m', '>', $block);
+        $block = $block[0];
+        if ('>' === $block[0]) {
+            $parts = \explode("\n", $block);
+            foreach ($parts as $k => $v) {
+                if ('> ' === \substr($v, 0, 2)) {
+                    $parts[$k] = \substr($v, 2);
+                    continue;
+                }
+                if ('>' === $v[0]) {
+                    $parts[$k] = \substr($v, 1);
+                    continue;
+                }
+            }
+            $block = content(blocks(\implode("\n", $parts)), $fn);
+            $parts = \explode("\n", $block);
+            foreach ($parts as $k => $v) {
+                $parts[$k] = ("" === $v ? '>' : '> ' . $v);
+            }
+            $block = \implode("\n", $parts);
             continue;
         }
-		$test = \trim($block = $block[0]);
-		if ('<' === $test[0] && '>' === \substr($test, -1)) {
-			$block = \call_user_func($fn, $block);
-		}
+        if (false !== \strpos('*+-', $block[0]) && false !== \strpos(" \t", $block[1] ?? "")) {
+            $parts = \explode("\n", $block);
+            $n = 1 + \strspn(\substr($block, 1), " \t");
+            $fix = \substr($block, 0, $n);
+            foreach ($parts as $k => $v) {
+                if (0 === $k || \strspn($v, " \t") >= $n) {
+                    $parts[$k] = \substr($v, $n);
+                    continue;
+                }
+            }
+            $block = content(blocks(\implode("\n", $parts)), $fn);
+            $parts = \explode("\n", $block);
+            foreach ($parts as $k => $v) {
+                if (0 === $k) {
+                    $parts[$k] = $fix . $v;
+                    continue;
+                }
+                $parts[$k] = ("" === $v ? "" : \str_repeat(' ', $n) . $v);
+            }
+            $block = \implode("\n", $parts);
+            continue;
+        }
+        $n = \strspn($block, '0123456789');
+        if ($n <= 9 && false !== \strpos(').', \substr($block, $n, 1)) && false !== \strpos(" \t", \substr($block, $n + 1, 1))) {
+            $parts = \explode("\n", $block);
+            $n = $n + 1 + \strspn(\substr($block, $n + 1), " \t");
+            $fix = \substr($block, 0, $n);
+            foreach ($parts as $k => $v) {
+                if (0 === $k || \strspn($v, " \t") >= $n) {
+                    $parts[$k] = \substr($v, $n);
+                    continue;
+                }
+            }
+            $block = content(blocks(\implode("\n", $parts)), $fn);
+            $parts = \explode("\n", $block);
+            foreach ($parts as $k => $v) {
+                if (0 === $k) {
+                    $parts[$k] = $fix . $v;
+                    continue;
+                }
+                $parts[$k] = ("" === $v ? "" : \str_repeat(' ', $n) . $v);
+            }
+            $block = \implode("\n", $parts);
+            continue;
+        }
+        $test = \trim($block);
+        if ('<' === $test[0] && '>' === \substr($test, -1) && false !== \strpos($test, ':')) {
+            $n = \strspn($block, " \t");
+            $dent = \substr($block, 0, $n);
+            $block = \call_user_func($fn, \substr($block, $n));
+            $parts = \explode("\n", $block);
+            foreach ($parts as $k => $v) {
+                if ("" === $v) {
+                    continue;
+                }
+                $parts[$k] = $dent . $v;
+            }
+            $block = \implode("\n", $parts);
+        }
     }
     unset($block);
     return \implode("\n", $blocks);
 }
 
-// $content = '    ' . \strtr($content, ["\n" => "\n    "]);
-// $content = \preg_replace('/^[ \t]+$/m', "", $content);
+$content = file_get_contents(__DIR__ . D . 'test.md');
 
 echo '<pre>';
 foreach (blocks($content) as $v) {
@@ -472,7 +201,7 @@ foreach (blocks($content) as $v) {
 echo '</pre>';
 
 echo '<pre>';
-echo \strtr(\htmlspecialchars(content(blocks($content), static function () { return '<asdf></asdf>'; })), ['&lt;asdf&gt;&lt;/asdf&gt;' => '<mark>&lt;asdf&gt;&lt;/asdf&gt;</mark>']);
+echo \htmlspecialchars(content(blocks($content), static function () { return "<asdf>\n  <asdf>asdf</asdf>\n  <asdf>asdf</asdf>\n  <asdf>asdf</asdf>\n</asdf>"; }));
 echo '</pre>';
 
 exit;
