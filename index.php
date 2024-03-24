@@ -6,6 +6,8 @@ asdf asdf asdf
 
 <asdf:asdf>
 
+ <asdf:asdf>
+
 asdf asdf asdf
 
     asdf asdf asdf
@@ -438,6 +440,28 @@ function blocks(string $content, int $d = 0) {
     return $blocks;
 }
 
+function content(array $blocks, callable $fn) {
+    foreach ($blocks as &$block) {
+        if (false === $block[1]) {
+            $block = $block[0];
+            continue;
+        }
+        if ('>' === $block[0][0]) {
+            $block = \preg_replace('/^>(?>[ \t]?|$)/m', "", $block[0]);
+			$block = content(blocks($block), $fn);
+            $block = '> ' . \strtr($block, ["\n" => "\n> "]);
+            $block = \preg_replace('/^>[ \t]?$/m', '>', $block);
+            continue;
+        }
+		$test = \trim($block = $block[0]);
+		if ('<' === $test[0] && '>' === \substr($test, -1)) {
+			$block = \call_user_func($fn, $block);
+		}
+    }
+    unset($block);
+    return \implode("\n", $blocks);
+}
+
 // $content = '    ' . \strtr($content, ["\n" => "\n    "]);
 // $content = \preg_replace('/^[ \t]+$/m', "", $content);
 
@@ -445,6 +469,10 @@ echo '<pre>';
 foreach (blocks($content) as $v) {
     echo '<span style="border:2px solid;color:#' . ($v[1] ? '080' : '800') . ';display:block;margin:0 0 1px;">' . (\htmlspecialchars($v[0]) ?: '<br>') . '</span>';
 }
+echo '</pre>';
+
+echo '<pre>';
+echo \strtr(\htmlspecialchars(content(blocks($content), static function () { return '<asdf></asdf>'; })), ['&lt;asdf&gt;&lt;/asdf&gt;' => '<mark>&lt;asdf&gt;&lt;/asdf&gt;</mark>']);
 echo '</pre>';
 
 exit;
