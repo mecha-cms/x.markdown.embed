@@ -103,26 +103,6 @@ function split(string $content) {
         }
         $dent = \strspn($row, ' ');
         if ($prev = $blocks[$block][0] ?? 0) {
-            $n = \strspn($prev, '#');
-            // Previous block is a header block?
-            if ($n > 0 && $n < 7 && false !== \strpos(" \t", \substr($prev . ' ', $n, 1))) {
-                $blocks[++$block] = [$row, "" !== $row];
-                continue;
-            }
-            // Previous block is an element block?
-            if ($row && '<' === $row[0]) {
-                if (\preg_match('/^<[a-z][a-z\d-]*(\s(?>"[^"]*"|\'[^\']*\'|[^>])*)?>(\n|$)/i', $prev)) {
-                    $blocks[$block][0] .= "\n" . $row;
-                    continue;
-                }
-                $blocks[++$block] = [$row, true];
-                continue;
-            }
-            // Previous block is a quote block and current block is also a quote block?
-            if ($row && '>' === $row[0] && '>' === $prev[0]) {
-                $blocks[$block][0] .= "\n" . $row;
-                continue;
-            }
             // Is in a code block?
             if (false !== \strpos('`~', $prev[0]) && ($n = \strspn($prev, $prev[0])) >= 3) {
                 $test = \strstr($prev, "\n", true) ?: $prev;
@@ -139,6 +119,27 @@ function split(string $content) {
                 // Continue the code block…
                 $blocks[$block][0] .= "\n" . $row;
                 $blocks[$block][1] = false;
+                continue;
+            }
+            $n = \strspn($prev, '#');
+            // Previous block is a header block?
+            if ($n > 0 && $n < 7 && false !== \strpos(" \t", \substr($prev . ' ', $n, 1))) {
+                $blocks[++$block] = [$row, "" !== $row];
+                continue;
+            }
+            // Previous block is an element block?
+            if ($row && '<' === $row[0]) {
+                if (\preg_match('/^<[a-z][a-z\d-]*(\s(?>"[^"]*"|\'[^\']*\'|[^>])*)?>(\n|$)/i', $prev)) {
+                    $blocks[$block][0] .= "\n" . $row;
+                    $blocks[$block][1] = false;
+                    continue;
+                }
+                $blocks[++$block] = [$row, true];
+                continue;
+            }
+            // Previous block is a quote block and current block is also a quote block?
+            if ($row && '>' === $row[0] && '>' === $prev[0]) {
+                $blocks[$block][0] .= "\n" . $row;
                 continue;
             }
             // Previous block is a list block?
